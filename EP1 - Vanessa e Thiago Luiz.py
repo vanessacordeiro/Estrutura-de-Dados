@@ -167,17 +167,16 @@ def cronometra(key, d, lista, dic_ordenado):
 #========= CONTA AS BUSCAS =========
 def num_buscas(num, dic_ordenado, dic, tempo_ordenacao):
     tempo = time()
-    buscas_sequenciais = busca_sequencial(num, dic)
-    tempo_sequencia = time() - tempo
-    buscas_binarias = 0
-    tempo_binaria = time()
+    cont = 0
     while True:
-        buscas_binarias= buscas_binarias + busca_binaria(dic_ordenado, num, 0, len(dic_ordenado), 1)
-        t = (time() - tempo_binaria)
-        if tempo_ordenacao<= tempo_sequencia + t:
+        cont = cont + 1
+        buscas_binarias = busca_binaria(dic_ordenado, num, 0, len(dic_ordenado), 1)
+        buscas_sequenciais = busca_sequencial(num, dic)
+        t = (time() - tempo)
+        if tempo_ordenacao<= t:
             break
 
-    return buscas_binarias
+    return cont
 
 if __name__ == "__main__":
     main()
